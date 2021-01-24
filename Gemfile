@@ -9,4 +9,6 @@ gem "puma"
 
 group :development do
   gem "capistrano", require: false
+  gem "ed25519", require: false
+  gem "bcrypt_pbkdf", require: false
 end
