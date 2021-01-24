@@ -6,6 +6,7 @@
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
+server "localhost", roles: %w{web app}
 
 
 
@@ -59,13 +60,3 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-server "localhost",
-  user: "app",
-  roles: %w{web app},
-  ssh_options: {
-    user: "app", # overrides user setting above
-    port: 2222,
-    keys: [ENV["APP_SSH_KEY"]],
-    forward_agent: true,
-    auth_methods: %w(publickey)
-  }
