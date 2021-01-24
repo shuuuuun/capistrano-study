@@ -59,3 +59,13 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+server "localhost",
+  user: "vagrant",
+  roles: %w{web app},
+  ssh_options: {
+    user: "vagrant", # overrides user setting above
+    port: 2222,
+    keys: [ENV["VAGRANT_SSH_KEY"]],
+    forward_agent: true,
+    auth_methods: %w(publickey)
+  }
