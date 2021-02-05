@@ -2,7 +2,7 @@
 lock "~> 3.15.0"
 
 set :application, "capistrano-study"
-set :repo_url, "git@github.com:shuuuuun/capistrano-study.git"
+set :repo_url, "git@github.com:shuuuuun/sinatra-starter.git"
 set :user, "app"
 set :group, "app"
 
