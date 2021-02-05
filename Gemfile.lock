@@ -9,6 +9,8 @@ GEM
       i18n
       rake (>= 10.0.0)
       sshkit (>= 1.9.0)
+    capistrano-bundler (2.0.1)
+      capistrano (~> 3.1)
     concurrent-ruby (1.1.8)
     ed25519 (1.2.4)
     i18n (1.8.7)
@@ -42,6 +44,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt_pbkdf
   capistrano
+  capistrano-bundler
   ed25519
   puma
   sinatra
