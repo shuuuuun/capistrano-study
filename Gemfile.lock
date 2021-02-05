@@ -11,6 +11,10 @@ GEM
       sshkit (>= 1.9.0)
     capistrano-bundler (2.0.1)
       capistrano (~> 3.1)
+    capistrano3-puma (5.0.2)
+      capistrano (~> 3.7)
+      capistrano-bundler
+      puma (>= 4.0, < 6.0)
     concurrent-ruby (1.1.8)
     ed25519 (1.2.4)
     i18n (1.8.7)
@@ -45,6 +49,7 @@ DEPENDENCIES
   bcrypt_pbkdf
   capistrano
   capistrano-bundler
+  capistrano3-puma
   ed25519
   puma
   sinatra
