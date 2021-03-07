@@ -33,7 +33,11 @@ require "capistrano/bundler"
 # require "capistrano/rails/assets"
 # require "capistrano/rails/migrations"
 # require "capistrano/passenger"
+
+# puma: https://github.com/seuros/capistrano-puma
 require "capistrano/puma"
+install_plugin Capistrano::Puma
+install_plugin Capistrano::Puma::Systemd # sudo権限が必要
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
