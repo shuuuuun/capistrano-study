@@ -47,3 +47,17 @@ set :ssh_options, {
   forward_agent: true,
   auth_methods: %w(publickey)
 }
+
+namespace :puma do
+  desc 'Create Directories for Puma'
+  task :make_dirs do
+    on roles(:app) do
+      execute "mkdir -p #{shared_path}/tmp/sockets"
+      execute "mkdir -p #{shared_path}/tmp/pids"
+      execute "mkdir -p #{shared_path}/log"
+    end
+  end
+
+  before :start, :make_dirs
+  before :restart, :make_dirs
+end
