@@ -48,6 +48,10 @@ set :ssh_options, {
   auth_methods: %w(publickey)
 }
 
+# set :rbenv_type, :user # or :system, or :fullstaq (for Fullstaq Ruby), depends on your rbenv setup
+set :rbenv_type, :system
+# set :rbenv_ruby, '2.4.2'
+
 namespace :puma do
   desc 'Create Directories for Puma'
   task :make_dirs do
