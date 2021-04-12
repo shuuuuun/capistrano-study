@@ -11,7 +11,7 @@ ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, "/var/www/my_app_name"
-set :deploy_to, "/home/app/capistrano-study"
+set :deploy_to, "/var/app/capistrano-study"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -48,9 +48,8 @@ set :ssh_options, {
   auth_methods: %w(publickey)
 }
 
-# set :rbenv_type, :user # or :system, or :fullstaq (for Fullstaq Ruby), depends on your rbenv setup
 set :rbenv_type, :system
-# set :rbenv_ruby, '2.4.2'
+set :rbenv_ruby, '3.0.0'
 
 namespace :puma do
   desc 'Create Directories for Puma'
