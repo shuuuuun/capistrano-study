@@ -8,3 +8,6 @@ deploy:
 
 setup:
 	bundle exec cap production puma:config puma:systemd:config puma:systemd:enable
+
+restart:
+	bundle exec cap production puma:restart

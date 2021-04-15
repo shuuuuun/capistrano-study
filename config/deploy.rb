@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.16.0"
 
-set :application, "capistrano-study"
+set :application, "study-app"
 set :repo_url, "git@github.com:shuuuuun/sinatra-starter.git"
 set :user, "app"
 set :group, "app"
@@ -11,7 +11,7 @@ ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, "/var/www/my_app_name"
-set :deploy_to, "/var/app/capistrano-study"
+set :deploy_to, "/var/app/#{fetch(:application)}"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
