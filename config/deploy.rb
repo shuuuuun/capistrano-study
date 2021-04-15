@@ -50,6 +50,16 @@ set :ssh_options, {
 
 set :rbenv_type, :system
 set :rbenv_ruby, '3.0.0'
+# set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+
+set :puma_user, fetch(:user)
+set :puma_systemctl_user, :system # accepts :user
+set :puma_role, :app
+# set :puma_bind, "tcp://0.0.0.0:9292"
+set :puma_service_unit_env_vars, %W[
+  RBENV_ROOT=#{fetch(:rbenv_path)}
+  RBENV_VERSION=#{fetch(:rbenv_ruby)}
+]
 
 namespace :puma do
   desc 'Create Directories for Puma'
@@ -58,9 +68,25 @@ namespace :puma do
       execute "mkdir -p #{shared_path}/tmp/sockets"
       execute "mkdir -p #{shared_path}/tmp/pids"
       execute "mkdir -p #{shared_path}/log"
+      # execute "chown -R app:app #{shared_path}/"
     end
   end
 
   before :start, :make_dirs
   before :restart, :make_dirs
 end
+
+# namespace :deploy do
+#   desc 'Start application'
+#   task :start do
+#     on roles(:app) do
+#       # invoke 'unicorn:start'
+#       within "#{deploy_to}/current" do
+#         # execute "bundle exec ruby app.rb"
+#         execute "bundle exec puma"
+#       end
+#     end
+#   end
+
+#   after :publishing, :start
+# end
