@@ -72,8 +72,8 @@ namespace :puma do
     end
   end
 
-  before :start, :make_dirs
-  before :restart, :make_dirs
+  # before :start, :make_dirs
+  # before :restart, :make_dirs
 end
 
 # namespace :deploy do
