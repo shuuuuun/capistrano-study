@@ -2,7 +2,8 @@
 lock "~> 3.16.0"
 
 set :application, "study-app"
-set :repo_url, "git@github.com:shuuuuun/sinatra-starter.git"
+# set :repo_url, "git@github.com:shuuuuun/sinatra-starter.git"
+set :repo_url, "git@github.com:shuuuuun/rails6-study.git"
 set :user, "app"
 set :group, "app"
 
