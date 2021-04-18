@@ -9,6 +9,7 @@ group :development do
   gem "capistrano-bundler", require: false
   gem "capistrano-rbenv", require: false
   gem "capistrano3-puma", require: false
+  gem "capistrano-rails", require: false
   gem "ed25519", require: false
   gem "bcrypt_pbkdf", require: false
 end
