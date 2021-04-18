@@ -32,6 +32,7 @@ set :deploy_to, "/var/app/#{fetch(:application)}"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
+# set :default_env, { RAILS_MASTER_KEY: ENV.fetch("RAILS_MASTER_KEY") }
 
 # Default value for local_user is ENV['USER']
 # set :local_user, -> { `git config user.name`.chomp }
@@ -60,6 +61,7 @@ set :puma_role, :app
 set :puma_service_unit_env_vars, %W[
   RBENV_ROOT=#{fetch(:rbenv_path)}
   RBENV_VERSION=#{fetch(:rbenv_ruby)}
+  RAILS_MASTER_KEY=#{ENV.fetch("RAILS_MASTER_KEY")}
 ]
 
 namespace :puma do
